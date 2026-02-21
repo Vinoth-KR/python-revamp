@@ -58,7 +58,6 @@ print(add_item_fixed("b"))  # ['b'] — Works as expected, no shared list.
 # For CPU bound tasks, multiprocessing can be used to bypass GIL and utilize multiple cores.
 
 import threading
-import time
 
 counter = 0 # Shared mutable state
 
@@ -73,3 +72,25 @@ t1.start(); t2.start()
 t1.join(); t2.join()
 
 print(counter) 
+
+
+
+#Exercises: 
+# 1. GIL Race Condition: Run the threading counter example above. Observe the incorrect result. Then fix it by using threading.Lock() inside the increment function.
+import threading
+
+counter_lock = 0
+lock = threading.Lock()
+
+def increment_lock():
+    global counter_lock
+    for _ in range(1_000_000):
+        with lock:  # Acquire lock to ensure only one thread modifies counter at a time
+            counter_lock += 1
+
+t1 = threading.Thread(target=increment_lock)
+t2 = threading.Thread(target=increment_lock)
+t1.start(); t2.start()
+t1.join(); t2.join()
+print ('Using thread lock for synchronization')
+print(counter_lock)  # Should consistently print 2000000 now
