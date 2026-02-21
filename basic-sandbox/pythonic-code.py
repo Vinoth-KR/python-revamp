@@ -110,7 +110,9 @@ print(f"Division result: {dividresult:.2f}")
 
 def merge_dicts(d1: dict[str, int], d2: dict[str, int]) -> dict[str, int]:
     merged : dict[str, int] ={}
-    for key in (set(d1.keys()).union(d2.keys())):
+    keys : list[str] = list(set(d1.keys()).union(d2.keys()))
+    keys.sort()  # Optional: Sort keys for consistent order
+    for key in keys:
         merged[key] = d1.get(key, 0) + d2.get(key, 0)
 
     return merged
