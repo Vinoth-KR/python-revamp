@@ -104,3 +104,64 @@ print('Printing middle 4 elements:', exercise_list[3:7])
 
 #using slices with steps - :: using two colons to specify a step
 print('Printing even numbers in order:', exercise_list[1:8:2]) # start at index 1, go up to index 7, step by 2
+
+#if statemetns and boolean logic
+age = 31
+city = 'Chennai'
+
+if age < 18 :
+    print("You are not eligible to cast your vote.")
+elif (age >= 18 and age < 65) and city == 'Bengaluru': # multiple conditions with and
+    print("You are eligible to vote !.")
+else:
+    print("You are a senior citizen, special category to cast the vote.")
+
+users = ['Jude', 'Alice', 'Bob', 'Jaden', 'Robert', 'admin']
+
+
+
+# users.clear()
+
+if(users):
+    for user in users:
+        if user == 'admin':
+            print(f"Hello {user}, would you like to see a status report?")
+        else:
+            print(f"Hello {user}, thank you for logging in again.")
+else:
+    print("We need to find some users!")
+
+#Oridnal numbers - 1st, 2nd, 3rd, 4th, etc.
+nums = [(value+1) for value in range(9)]
+for num in nums:
+    ordinal = ''
+    if num == 1:
+        ordinal = 'st'
+    elif num == 2:  
+        ordinal = 'nd'
+    elif num == 3:
+        ordinal = 'rd'
+    else:
+        ordinal = 'th'
+    
+    print(f"{num}{ordinal}")
+
+    dict = {"name": "Alice", "age": 30 }
+    print(dict)
+
+    nums_dict = {1: 'one', 2: 'two', 3: 'three'}
+    print(nums_dict.get(2))
+    print(nums_dict.get(4)) # get method to retrieve value for a key, with a default value if key is not found
+    print(nums_dict.get(4, 'Not found')) 
+
+# Both of the below for loops will give same output,
+# when iterating over a dictionary, it iterates over the keys by default.
+# which is explicity defined in the second loop with .keys() method.
+for num in nums_dict:
+    print(f"Key: {num}, Value: {nums_dict[num]}")
+
+for num in nums_dict.keys():
+    print(f"Key: {num}, Value: {nums_dict[num]}")
+
+for k, v in nums_dict.items(): # iterating over key-value pairs with .items() method
+    print(f"Key: {k}, Value: {v}")
