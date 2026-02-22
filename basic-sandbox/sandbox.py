@@ -149,7 +149,7 @@ for num in nums:
     dict = {"name": "Alice", "age": 30 }
     print(dict)
 
-    nums_dict = {1: 'one', 2: 'two', 3: 'three'}
+    nums_dict = {1: 'one', 2: 'two', 3: 'three', 4: 'four'}
     print(nums_dict.get(2))
     print(nums_dict.get(4)) # get method to retrieve value for a key, with a default value if key is not found
     print(nums_dict.get(4, 'Not found')) 
@@ -165,3 +165,31 @@ for num in nums_dict.keys():
 
 for k, v in nums_dict.items(): # iterating over key-value pairs with .items() method
     print(f"Key: {k}, Value: {v}")
+
+for v in nums_dict.values(): # iterating over values with .values() method
+    print(f"Value: {v}")
+
+
+nums_dict2 = {1: 'one', 2: 'two', 3: 'three', 4: 'four'}
+
+
+print(id(nums_dict))
+print(id(nums_dict2))
+print(nums_dict == nums_dict2)
+print(nums_dict is nums_dict2)
+
+
+#Dictionaries with nested dictionaries
+users = {
+    'einstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton',
+    },
+    'curie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+    },
+}
+
