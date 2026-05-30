@@ -1,0 +1,3 @@
+https://github.com/ehmatthes
+
+GITHUB LINK for resources used in the book - Python Crash Course
